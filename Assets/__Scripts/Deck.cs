@@ -250,7 +250,7 @@ public class Deck : MonoBehaviour {
 			card.back = tGO;
 
 			//Default to face-up
-			card.faceUp = false; //Use the property faceUp of Card
+			card.faceUp = true; //Use the property faceUp of Card
 		
 			//Add the card to the deck
 			cards.Add (card);
@@ -266,5 +266,25 @@ public class Deck : MonoBehaviour {
 		}//foreach	
 		return (null);  // couldn't find the sprite (should never reach this line)
 	 }// getFace 
+
+
+	//Shuffle the Cards in Deck.cards
+	static public void Shuffle(ref List<Card> oCards){
+		//Create a temporary List to hold the new shuffle order
+		List<Card> tCards = new List<Card>();
+
+		int ndx; //This will hold the index of the card to be moved
+		tCards = new List<Card>(); //Initialize the temporary List
+		//Repeat as long as there are cards in the original List
+		while (oCards.Count > 0) {
+			//Pick the index of a random card
+			ndx = Random.Range(0, oCards.Count);
+			//Add that card to the temporary List
+			oCards.RemoveAt(ndx);
+		}
+
+		//Replace the original List with the temporary List
+		oCards = tCards;
+	}
 	
 } // Deck class
