@@ -2,66 +2,72 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  tags:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
   - 
-  Builtin Layer 0: Default
-  Builtin Layer 1: TransparentFX
-  Builtin Layer 2: Ignore Raycast
-  Builtin Layer 3: 
-  Builtin Layer 4: Water
-  Builtin Layer 5: UI
-  Builtin Layer 6: 
-  Builtin Layer 7: 
-  User Layer 8: 
-  User Layer 9: 
-  User Layer 10: 
-  User Layer 11: 
-  User Layer 12: 
-  User Layer 13: 
-  User Layer 14: 
-  User Layer 15: 
-  User Layer 16: 
-  User Layer 17: 
-  User Layer 18: 
-  User Layer 19: 
-  User Layer 20: 
-  User Layer 21: 
-  User Layer 22: 
-  User Layer 23: 
-  User Layer 24: 
-  User Layer 25: 
-  User Layer 26: 
-  User Layer 27: 
-  User Layer 28: 
-  User Layer 29: 
-  User Layer 30: 
-  User Layer 31: 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Default
-    userID: 0
     uniqueID: 0
     locked: 0
-  - name: Row0
-    userID: 1
-    uniqueID: 2100515089
+  - name: 1
+    uniqueID: 3923408917
     locked: 0
-  - name: Row1
-    userID: 2
-    uniqueID: 1332928949
+  - name: 2
+    uniqueID: 769214833
     locked: 0
-  - name: Row2
-    userID: 3
-    uniqueID: 1215021019
+  - name: 3
+    uniqueID: 904085939
     locked: 0
-  - name: Row3
-    userID: 4
-    uniqueID: 1947779335
+  - name: 4
+    uniqueID: 558444363
     locked: 0
-  - name: Discard
-    userID: 5
-    uniqueID: 2276425509
+  - name: 5
+    uniqueID: 596378669
     locked: 0
-  - name: Draw
-    userID: 6
-    uniqueID: 2953865051
+  - name: 6
+    uniqueID: 4006476733
+    locked: 0
+  - name: 7
+    uniqueID: 4184625679
+    locked: 0
+  - name: 8
+    uniqueID: 3397667979
+    locked: 0
+  - name: 9
+    uniqueID: 1464161455
+    locked: 0
+  - name: 10
+    uniqueID: 1177029845
     locked: 0

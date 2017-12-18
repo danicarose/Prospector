@@ -70,7 +70,7 @@ public class Deck : MonoBehaviour {
 		s += " x=" + xmlr.xml ["xml"] [0] ["decorator"] [0].att ("x");
 		s += " y=" + xmlr.xml ["xml"] [0] ["decorator"] [0].att ("y");
 		s += " scale=" + xmlr.xml ["xml"] [0] ["decorator"] [0].att ("scale");
-		//print (s);
+		print (s);
 		
 		//Read decorators for all cards
 		// these are the small numbers/suits in the corners
@@ -235,22 +235,21 @@ public class Deck : MonoBehaviour {
 				tGO.transform.localPosition = Vector3.zero;  // slap it smack dab in the middle
 				tGO.name = "face";
 			}
-
-			//Add Card Back
-			//The Card_Back will be able to cover everything else on the Card
+			
+			// Add Card Back
+			// Back isn't actually behind the card. It sits in front of the card
+			// and can be turned on and off to hide the face
 			tGO = Instantiate(prefabSprite) as GameObject;
 			tSR = tGO.GetComponent<SpriteRenderer>();
 			tSR.sprite = cardBack;
 			tGO.transform.parent = card.transform;
 			tGO.transform.localPosition = Vector3.zero;
-			//This is a higher sortingOrder than anything else
 			tSR.sortingOrder = 2;
 			tGO.name = "back";
+			
 			card.back = tGO;
-
-			//Default to face-up
-			card.faceUp = false; //Use the property faceUp of Card
-
+			card.faceUP = true;
+			
 			cards.Add (card);
 		} // for all the Cardnames	
 	} // makeCards
@@ -264,26 +263,30 @@ public class Deck : MonoBehaviour {
 		}//foreach	
 		return (null);  // couldn't find the sprite (should never reach this line)
 	 }// getFace 
-
-	//Shuffle the Cards in Deck.cards
-	static public void Shuffle(ref List<Card> oCards) {
-		//Create a temporary List to hold the new shuffle order
-		List<Card> tCards = new List<Card>();
-
-		int ndx; //This will hold the index of the card to be moved
-		tCards = new List<Card>(); //Initialize the temporary List
-		//Repeat as long as there are cards in the original List
-		while (oCards.Count > 0) {
-			//Pick the index of a random card
-			ndx = Random.Range(0,oCards.Count);
-			//Add that card to the temporary List
-			tCards.Add (oCards[ndx]);
-			//And remove that card from the original List
-			oCards.RemoveAt(ndx);
-		}
-		//Replace the original List with the temporary List
-		oCards = tCards;
-		//Because oCards is a reference variable, the original that was
-		//passed in is changed as well
-	}
+	 
+	 
+	 // Shuffle the cards in the Deck
+	 // parameter is of type ref, so that we are working with the actual list, not copy
+	 // oCards - o indicates out??? 
+	 static public void Shuffle(ref List<Card> oCards){
+	 	List<Card> tCards = new List<Card>();
+	 	int ndx;
+	 	
+	 	// while there are still cards in the original list
+	 	// draw a card at random from the list of cards
+	 	// put it in temporary list
+	 	// remove from original list
+	 	while (oCards.Count > 0) {
+	 		ndx = Random.Range (0, oCards.Count);
+	 		tCards.Add (oCards[ndx]);
+	 		oCards.RemoveAt(ndx);
+	 	}
+	 	
+	 	
+	 	//when done, move the temporary list to the original list
+	 	// since it's a ref parameter, the original is changed
+	 	//MAGIC!
+	 	oCards = tCards;
+	 }
+	
 } // Deck class
